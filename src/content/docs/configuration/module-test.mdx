@@ -1,0 +1,80 @@
+---
+title: module-text.json
+description: How to edit DirectionHUD module-text.json file
+lastUpdated: true
+tableOfContents:
+  minHeadingLevel: 1
+  maxHeadingLevel: 4
+---
+import { Code, Card, Badge } from '@astrojs/starlight/components';
+
+This file contains the display formatting information for all the HUD modules in DirectionHUD. <br/>
+Modules like <code><a href="#direction" summary="The direction module">direction</a></code> and
+<code><a href="#tracking" summary="The tracking module">tracking</a></code> have a section for their assets, which can be customized.
+
+# Formatting Guidelines
+Every module in this file follows the same formatting guidelines.
+
+## Getting Module Output
+<p>
+    Each module has outputs that should be displayed.<br/>
+    <br/>
+    Use <code>%s</code> to retrieve an output.<br/>
+    <br/>
+    <b>Module Output</b>: 123, 45, 678<br/>
+    <b>Input</b>: <code>This is the x value: %s</code><br/>
+    <b>Output</b>: This is the x value: 123<br/><br/>
+
+    When multiple outputs need to be selected out of order,
+    use the syntax <code>%1$s</code>,
+    where the number corresponds to the original order.<br/><br/>
+
+    <b>Module Output</b>: 123, 45, 678<br/>
+    <b>Input</b>: <code>This is the z value: %3$s</code><br/>
+    <b>Output</b>: This is the z value: 678<br/><br/>
+</p>
+
+## Selecting a Color
+<p>
+    There are currently two color code formats to choose from.<br/><br/>
+
+    <code>&amp;1</code> - The player's selected <Badge text="primary" variant="note"/> color.<br/>
+    <code>&amp;2</code> - The player's selected <Badge text="secondary" variant="success"/> color.<br/>
+    <br/>
+    <b>Example</b>: <code>&amp;1Hello World!</code><br/>
+    <b>Output</b>: <Badge text="Hello World!" variant="note"/>
+</p>
+
+## Text Styling
+<p>
+    DirectionHUD offers all the vanilla text formatting functionality for the module output.<br/><br/>
+
+    <code>&amp;b</code> - Makes the text bold.<br/>
+    <code>&amp;i</code> - Makes the text italic.<br/>
+    <code>&amp;s</code> - Makes the text strikethrough.<br/>
+    <code>&amp;u</code> - Makes the text underlined.<br/>
+    <code>&amp;o</code> - Makes the text obfuscated.<br/>
+    <code>&amp;r</code> - Resets all modifiers, <i>excluding</i> the color of the text.<br/>
+    <br/>
+    <b>Example</b>: <code>&amp;bHello &amp;iWorld!</code><br/>
+    <b>Output</b>: <b>Hello <i>World!</i></b><br/>
+    <br/>
+    Resetting the modifier between the words offers more controls.<br/>
+    <br/>
+    <b>Example</b>: <code>&amp;bHello &amp;r&amp;i&amp;uWorld&amp;r!</code><br/>
+    <b>Output</b>: <b>Hello</b> <u><i>World</i></u>!<br/>
+</p>
+
+## Default Examples
+<p>
+    Here are some formatting examples based on these concepts<br/><br/>
+
+    <b>Colors</b>: <Badge text="primary" variant="note"/>, <Badge text="secondary" variant="success"/><br/>
+    <b>Module Output</b>: 123, 45, 678<br/><br/>
+
+    <b>Example</b>: <code>&amp;1&amp;b&amp;uXYZ&amp;2&amp;r: %s %s %s</code><br/>
+    <b>Output</b>: <Badge text="XYZ" variant="note" style={{ fontWeight: 'bold', textDecoration: 'underline' }}/><Badge text="123 45 678" variant="success"/><br/>
+    <br/>
+    <b>Example</b>: <code>&amp;1&amp;b&amp;iXYZ&amp;r&amp;2: %s&amp;1&amp;b-&amp;r&amp;2%s&amp;1&amp;b-&amp;r&amp;2%s</code><br/>
+    <b>Output</b>: <Badge text="XYZ" variant="note" style={{ fontWeight: 'bold', fontStyle: 'italic' }}/><Badge text=": 123" variant="success"/><Badge text="-" variant="note" style={{ fontWeight: 'bold', textDecoration: 'line-through'}}/><Badge text="45" variant="success"/><Badge text="-" variant="note" style={{ fontWeight: 'bold', textDecoration: 'line-through'}}/><Badge text="678" variant="success"/><br/>
+</p>
