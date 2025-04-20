@@ -1,0 +1,80 @@
+{
+  "version": 1.01,
+  "coordinates": {
+    "xyz": "&1XYZ: &2%s %s %s",
+    "xz": "&1XZ: &2%s %s"
+  },
+  "destination": {
+    "xyz": "&1[&2%s %s %s&1]",
+    "xz": "&1[&2%s %s&1]",
+    "name": "&1[&2%s&1]",
+    "name_xz": "&1[&2%s&1]"
+  },
+  "distance": {
+    "number": "&1[&2%s&1]"
+  },
+  "tracking": {
+    "assets": {
+      "simple": {
+        "north_east": "-▲▶",
+        "north": "-▲-",
+        "north_west": "◀▲-",
+        "west": "◀--",
+        "south_west": "◀▼-",
+        "south": "-▼-",
+        "south_east": "-▼▶",
+        "east": "--▶"
+      },
+      "compact": {
+        "north_east": "⬈",
+        "north": "⬆",
+        "north_west": "⬉",
+        "west": "⬅",
+        "south_west": "⬋",
+        "south": "⬇",
+        "south_east": "⬊",
+        "east": "⮕"
+      },
+      "elevation": {
+        "above": "⬆",
+        "same": "-",
+        "below": "⬇"
+      }
+    },
+    "tracking": "&1&s[&r&2%s&1&s]",
+    "elevation_tracking": "&1&s[&r&2%s&1|&2%s&1&s]"
+  },
+  "direction": {
+    "assets": {
+      "cardinal": {
+        "north_east": "NE",
+        "north": "N",
+        "north_west": "NW",
+        "west": "W",
+        "south_west": "SW",
+        "south": "S",
+        "south_east": "SE",
+        "east": "E"
+      }
+    },
+    "facing": "&1%s"
+  },
+  "weather": {
+    "weather_single": "&1%s",
+    "weather": "&1%s%s"
+  },
+  "time": {
+    "hour_AM": "&2%s&1:&2%s &1AM",
+    "hour_PM": "&2%s&1:&2%s &1PM",
+    "hour_24": "&2%s&1:&2%s"
+  },
+  "angle": {
+    "yaw": "&2%s",
+    "pitch": "&2%s",
+    "both": "&2%s&1/&2%s"
+  },
+  "speed": {
+    "xz_speed": "&2%s &1B/S",
+    "xyz_speed": "&2%s &1B/S"
+  }
+}

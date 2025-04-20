@@ -1,0 +1,108 @@
+{
+  "version": 2.1,
+  "hud": {
+    "modules": [
+      {
+        "xyz-display": true,
+        "module": "COORDINATES",
+        "order": 1,
+        "state": true
+      },
+      {
+        "module": "DESTINATION",
+        "order": 2,
+        "state": true
+      },
+      {
+        "module": "DISTANCE",
+        "order": 3,
+        "state": true
+      },
+      {
+        "hybrid": true,
+        "target": "player",
+        "display-type": "simple",
+        "show-elevation": false,
+        "module": "TRACKING",
+        "order": 4,
+        "state": false
+      },
+      {
+        "module": "DIRECTION",
+        "order": 5,
+        "state": true
+      },
+      {
+        "module": "WEATHER",
+        "order": 6,
+        "state": true
+      },
+      {
+        "24hr-clock": false,
+        "module": "TIME",
+        "order": 7,
+        "state": true
+      },
+      {
+        "display": "both",
+        "module": "ANGLE",
+        "order": 8,
+        "state": false
+      },
+      {
+        "2d-calculation": false,
+        "display-pattern": "0.00",
+        "module": "SPEED",
+        "order": 9,
+        "state": false
+      }
+    ],
+    "setting": {
+      "bossbar": {
+        "color": "white",
+        "distance": true,
+        "distance_max": 0
+      },
+      "state": true,
+      "type": "actionbar"
+    },
+    "primary": {
+      "color": "#2993ff",
+      "bold": false,
+      "italics": false,
+      "rainbow": false
+    },
+    "secondary": {
+      "color": "#ffffff",
+      "bold": false,
+      "italics": false,
+      "rainbow": false
+    }
+  },
+  "destination": {
+    "saved": [],
+    "dest": {},
+    "lastdeath": [],
+    "setting": {
+      "ylevel": false,
+      "autoclear": true,
+      "autoclear_rad": 2,
+      "autoconvert": false,
+      "features": {
+        "track": true,
+        "track_request_mode": "request",
+        "send": true,
+        "lastdeath": true
+      },
+      "particles": {
+        "dest": true,
+        "dest_color": "#2993ff",
+        "line": true,
+        "line_color": "#ffee35",
+        "tracking": true,
+        "tracking_color": "#ff6426"
+      }
+    }
+  },
+  "color_presets": []
+}

@@ -1,0 +1,119 @@
+---
+title: config.json
+description: How to edit DirectionHUD config.json file
+lastUpdated: true
+---
+import { Code, Card } from '@astrojs/starlight/components';
+
+This file contains the configurations for the main features of DirectionHUD. 
+These features include language selection, loop speeds, social settings, and more.
+
+# Configuration 
+
+Each part of the file and its valid entries are detailed below.
+
+## <code>lang</code>
+Defines the language used for DirectionHUD.
+<p>
+    <b>Input</b>: String<br/>
+    <b>Options</b>:
+    <code>en_us</code>,
+    <code>ru_ru</code>,
+    <code>zh_cn</code>,
+    <code>zh_hk</code>
+</p>
+
+## <code>online-mode</code>
+Defines the mode for PlayerData file creation. <br/>
+When <b>enabled</b>, PlayerData files are named and accessed via the player's <tooltip term="UUID">UUID</tooltip>. <br/>
+When <b>disabled</b>, the PlayerData will use the player's <tooltip term="IGN">IGN</tooltip>.
+
+<p><b>Input</b>: Boolean</p>
+
+<Card>
+## <code>location</code>
+Configures the constraints on DirectionHUD locations.
+
+### <code>max-xz</code>
+Defines the maximum accepted input for the X and Z coordinates (both positive and negative).
+<p><b>Input</b>: Integer</p>
+
+### <code>max-y</code>
+Defines the maximum accepted input for the Y level (both positive and negative).
+<p><b>Input</b>: Integer</p>
+</Card>
+
+<Card>
+## <code>hud</code>
+Configures HUD functionality.
+
+### <code>editing</code>
+Toggles the <a href="index.mdx"><code>/hud</code></a> command completely.
+<p><b>Input</b>: Boolean</p>
+
+### <code>loop-ticks</code>
+Defines the number of ticks between each HUD refresh.
+<p><b>Input</b>: Integer</p>
+
+</Card>
+
+<Card>
+## <code>destination</code>
+Configures Destination functionality.
+
+### <code>saving</code>
+Toggles the ability to save destinations.
+<p><b>Input</b>: Boolean</p>
+
+### <code>max-saved</code>
+Sets the maximum number of saved destinations a player can have.
+<p><b>Input</b>: Integer</p>
+
+### <code>global</code>
+Toggles the global destination feature. <br/>
+When global destinations are enabled, a player with operator permissions can edit the list of destinations that are shown to everybody in a separate tab. <br/>
+<p><b>Input</b>: Boolean</p>
+
+<Card>
+### <code>lastdeath</code>
+Configures the lastdeath settings.
+
+#### <code>saving</code>
+Toggles whether deaths get saved or not.
+<p><b>Input</b>: Boolean</p>
+
+#### <code>max-deaths</code>
+Defines the maximum number of deaths that are saved per player.
+<p><b>Input</b>: Integer</p>
+
+</Card>
+
+### <code>loop-ticks</code>
+Defines the number of ticks between each destination calculation. (particles)
+<p><b>Input</b>: Integer</p>
+
+</Card>
+
+<Card>
+
+## <code>social</code>
+Configures social functionality.
+### <code>enabled</code>
+Toggles the player's ability to send social commands.
+<p><b>Input</b>: Boolean</p>
+
+### <code>cooldown</code>
+Specifies the cooldown time before sending another social command.
+<p><b>Input</b>: Integer</p>
+
+</Card>
+
+## <code>max-color-presets</code>
+Defines the maximum number of <a href="index.mdx">color presets</a> that a player can have.
+<p><b>Input</b>: Integer</p>
+
+# Default File Structure
+
+import importedCode from '/src/assets/default_files/config.json?raw';
+
+<Code code={importedCode} lang="json" title="config.json" />

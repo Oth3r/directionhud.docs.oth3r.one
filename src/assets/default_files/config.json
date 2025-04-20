@@ -1,0 +1,34 @@
+{
+  "version": 1.6,
+  "lang": "en_us",
+  "lang-options": [
+    "en_us (100%)",
+    "ru_ru (88%)",
+    "zh_cn (76%)",
+    "zh_tw (76%)"
+  ],
+  "online-mode": true,
+  "location": {
+    "max-y": 512,
+    "max-xz": 30000000
+  },
+  "hud": {
+    "editing": true,
+    "loop-ticks": 1
+  },
+  "destination": {
+    "saving": true,
+    "max-saved": 50,
+    "global": false,
+    "lastdeath": {
+      "saving": true,
+      "max-deaths": 4
+    },
+    "loop-ticks": 20
+  },
+  "social": {
+    "enabled": true,
+    "cooldown": 10
+  },
+  "max-color-presets": 14
+}
