@@ -1,0 +1,100 @@
+---
+title: dimension-settings.json
+description: How to edit DirectionHUD dimension-settings.json file
+lastUpdated: true
+tableOfContents:
+  minHeadingLevel: 1
+  maxHeadingLevel: 3
+---
+
+import { Code, Card } from '@astrojs/starlight/components';
+
+This file contains the configurations for dimension-specific settings in DirectionHUD. These settings include dimension properties, time configurations, weather, and ratios.
+
+# Configuration
+
+Each part of the file and its valid entries are detailed below.
+
+## <code>dimensions</code>
+A list of dimensions and their specific configurations.
+
+<Card>
+### Dimension Entry
+Defines the settings of a dimension, like its color, name, and time settings. <br/>
+Each dimension has the following properties:
+
+#### <code>id</code> 
+The unique identifier for the dimension.
+<p><b>Input</b>: String</p>
+#### <code>name</code>
+The display name of the dimension.
+<p><b>Input</b>: String</p>
+#### <code>color</code>
+The color associated with the dimension.
+<p><b>Input</b>: Hex Color Code</p>
+
+### <code>time</code>
+Each dimension has their own time settings:
+
+#### <code>enabled</code>
+Toggles whether time settings are enabled.
+<p><b>Input</b>: Boolean</p>
+    <Card>
+    #### <code>weather</code>
+    Configures weather-related settings.
+
+    ##### <code>enabled</code>
+    Toggles whether weather settings are enabled.<br/>
+    If **disabled** the rest of these settings will be ignored & will not have to be entered.
+    <p><b>Input</b>: Boolean</p>
+
+        <Card>
+        ##### <code>night-ticks</code>
+        Defines the start and end ticks for sleeping in different weather conditions. <br/>
+
+        ###### <code>normal</code>, <code>storm</code>, <code>thunderstorm</code>
+        Each weather has an entry for the start and end ticks.
+        - <code>startTick</code> <br/>
+        The starting tick for night time in the specified weather.
+        <p><b>Input</b>: Integer</p>
+        - <code>endTick</code> <br/>
+        The ending tick for night time in the specified weather.
+        <p><b>Input</b>: Integer</p>
+        </Card>
+
+        <Card>
+        ##### <code>icons</code>
+        Defines the icons used for different conditions thoughout the day.
+
+        ###### <code>day</code>, <code>stonightrm</code>, <code>storm</code>, <code>thunderstorm</code>
+        Each condition has an entry for their custom icon.
+        <p><b>Input</b>: String</p>
+        </Card>
+    </Card>
+</Card>
+
+## <code>ratios</code>
+A list of dimension ratios.
+
+<Card>
+### Dimension Ratio Entry
+Defines the coordinate scaling relationships between dimensions. <br/>
+Each dimension ratio has the following properties:
+
+#### <code>dimension-1</code>, <code>dimension-2</code>
+The two dimensions that are being compared in the ratio.<br/>
+Each dimension has the following properties:
+##### <code>key</code>
+The unique identifier of a dimension.
+<p><b>Input</b>: String</p>
+##### <code>value</code>
+The scaling value relative to the other dimension. <br/>
+Ex. If dimension-1 is <code>2</code> and dimension-2 is <code>1</code>, then the ratio is <code>2:1</code>.
+<p><b>Input</b>: Float</p>
+</Card>
+
+# Default File Structure
+
+import importedCode from '/src/assets/default_files/dimension-settings.json?raw';
+
+<Code code={importedCode} lang="json" title="dimension-settings.json" />
