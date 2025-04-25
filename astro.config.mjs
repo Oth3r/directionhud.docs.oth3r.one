@@ -5,6 +5,13 @@ import catppuccin from "@catppuccin/starlight";
 
 // https://astro.build/config
 export default defineConfig({
+	vite: {
+		resolve: {
+		  alias: {
+			'@': new URL('./src', import.meta.url).pathname,
+		  },
+		},
+	  },
 	integrations: [
 		starlight({
 			title: 'DirectionHUD',
@@ -16,8 +23,24 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: "Configuration",
-					autogenerate: { directory: 'configuration'}
-				}
+					items: [
+						'configuration/config',
+						'configuration/module-text',
+						'configuration/dimension-settings',
+					]
+				},
+				{
+					label: "Features",
+					items: [
+						{
+							label: "HUD",
+							items: [
+								'features/hud/overview',
+								'features/hud/modules',
+							]
+						}
+					  ],
+				},
 			],
 			plugins: [
 				catppuccin({

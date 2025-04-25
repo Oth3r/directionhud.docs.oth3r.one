@@ -1,0 +1,110 @@
+---
+title: Modules
+description: How to edit DirectionHUD module-text.json file
+lastUpdated: true
+---
+The HUD is comprised of modules each with their own configurations and states.
+
+# Module
+
+## Coordinates
+The coordinates module displays the player's current coordinates in the world. 
+It can be configured to show either the XYZ coordinates or just the XZ coordinates.
+
+### Settings
+#### <code>xyz-display</code>
+Toggles between xyz and xz coordinate display.   
+<p><b>Options</b>: on, off</p>
+
+## Distance
+The distance module displays the distance from the player to the set destination.
+
+## Destination
+The destination module displays the coordinates for the set destination.
+
+## Direction
+The direction module displays the player's current facing direction.
+
+## Tracking
+The tracking module displays an arrow that points to the tracked target. It can be configured to prioritize the main target or track any target.
+
+### Settings
+#### <code>hybrid</code>
+Enables tracking of any target, prioritizing the main target.   
+<p><b>Options</b>: on, off</p>
+
+#### <code>target</code>
+Selects the target for the tracker to point towards.   
+<p><b>Options</b>: player, dest</p>
+
+#### <code>display-type</code>
+Changes the visual style of the tracker.   
+<p><b>Options</b>: simple, compact</p>
+
+#### <code>show-elevation</code>
+Enables showing the elevation difference to the target.   
+<p><b>Options</b>: on, off</p>
+
+## Time
+The time module displays the current world time.
+
+### Settings
+#### <code>24hr-clock</code>
+Toggles between a 24 and 12 hour clock.   
+<p><b>Options</b>: on, off</p>
+
+## Weather
+The weather module displays the current weather status of the world.
+
+## Speed
+The speed module displays the player's current movement speed.
+
+### Settings
+#### <code>2d-calculation</code>
+Sets the speed calculation type. When enabled, the Y level is excluded from the calculation.   
+<p><b>Options</b>: on, off</p>
+
+#### <code>display-pattern</code>
+Sets the formatting string for the speed value.   
+<p><b>Options</b>: 0.00</p>   
+<p>See <a href="https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html">DecimalFormat</a> for formatting options.</p>
+
+## Angle
+The angle module displays the player's current viewing angle.
+
+### Settings
+#### <code>display</code>
+Sets the angle display type.   
+<p><b>Options</b>: yaw, pitch, both</p>
+
+# Commands
+import Command from '@/components/command.astro';
+
+Each command shown starts with <code>/hud modules</code>.
+
+<Command></Command>
+
+### <code>/hud modules</code>
+Displays the HUD module edit GUI.
+<p>The menu displays a random preview of the module,
+    toggle settings, HUD order settings, custom HUD options,
+    and buttons to switch the module being edited.</p>
+
+### <code>/hud module order &lt;module&gt; &lt;order&gt;</code>
+Sets the display order for the selected module.  
+<p><b>Example:</b> <code>/hud module order time 2</code></p>
+<p>Enter a number greater than one for the order.</p>
+
+### <code>/hud module setting &lt;module&gt; &lt;module_setting&gt; &lt;value&gt;</code>
+Sets a specific HUD module setting to the given value.  
+<p><b>Example:</b> <code>/hud module setting speed 2d-calculation off</code></p>
+<p>For a list of settings and their values, <a href="#settings" summary="Table of HUD module settings.">Click Here.</a></p>
+
+### <code>/hud module toggle &lt;module&gt;</code>
+Toggles the enabled status of the selected module.  
+<p><b>Example:</b> <code>/hud module toggle time</code></p>
+
+### <code>/hud module reset (module)</code>
+Restores all HUD modules to their default values unless a specific module is specified.  
+<p><b>Example:</b> <code>/hud module reset</code></p>
+
