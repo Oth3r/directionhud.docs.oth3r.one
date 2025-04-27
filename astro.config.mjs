@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import catppuccin from "@catppuccin/starlight";
+import starlightVersions from 'starlight-versions'
 
 // https://astro.build/config
 export default defineConfig({
@@ -43,6 +44,9 @@ export default defineConfig({
 				},
 			],
 			plugins: [
+				starlightVersions({
+					versions: [{ slug: '1.8.0' }],
+				}),
 				catppuccin({
 					dark: { flavor: "mocha", accent: "blue" },
 					light: { flavor: "latte", accent: "blue" }

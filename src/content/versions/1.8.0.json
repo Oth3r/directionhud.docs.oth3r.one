@@ -1,0 +1,24 @@
+{
+  "sidebar": [
+    {
+      "label": "Configuration",
+      "items": [
+        "configuration/config",
+        "configuration/module-text",
+        "configuration/dimension-settings"
+      ]
+    },
+    {
+      "label": "Features",
+      "items": [
+        {
+          "label": "HUD",
+          "items": [
+            "features/hud/overview",
+            "features/hud/modules"
+          ]
+        }
+      ]
+    }
+  ]
+}

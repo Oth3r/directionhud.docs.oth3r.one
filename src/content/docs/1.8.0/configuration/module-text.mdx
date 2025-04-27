@@ -1,0 +1,283 @@
+---
+title: module-text.json
+description: How to edit DirectionHUD module-text.json file
+lastUpdated: true
+tableOfContents:
+  minHeadingLevel: 1
+  maxHeadingLevel: 2
+slug: 1.8.0/configuration/module-text
+---
+
+import { Code, Card, Badge } from '@astrojs/starlight/components';
+
+This file contains the display formatting information for all the HUD modules in DirectionHUD. <br />
+Modules like <code><a href="#direction" summary="The direction module">direction</a></code> and
+<code><a href="#tracking" summary="The tracking module">tracking</a></code> have a section for their assets, which can be customized.
+
+# Formatting Guidelines
+
+Every module in this file follows the same formatting guidelines.
+
+## Getting Module Output
+
+<p>
+  Each module has outputs that should be displayed.<br />
+
+  <br />
+
+  Use <code>%s</code> to retrieve an output.<br />
+
+  <br />
+
+  <b>Module Output</b>: 123, 45, 678<br />
+  <b>Input</b>: <code>This is the x value: %s</code><br />
+  <b>Output</b>: This is the x value: 123<br /><br />
+
+  When multiple outputs need to be selected out of order,
+  use the syntax <code>%1$s</code>,
+  where the number corresponds to the original order.<br /><br />
+
+  <b>Module Output</b>: 123, 45, 678<br />
+  <b>Input</b>: <code>This is the z value: %3$s</code><br />
+  <b>Output</b>: This is the z value: 678<br /><br />
+</p>
+
+## Selecting a Color
+
+<p>
+  There are currently two color code formats to choose from.<br /><br />
+
+  <code>&1</code> - The player's selected <Badge text="primary" variant="note" /> color.<br />
+  <code>&2</code> - The player's selected <Badge text="secondary" variant="success" /> color.<br />
+
+  <br />
+
+  <b>Example</b>: <code>&1Hello World!</code><br />
+  <b>Output</b>: <Badge text="Hello World!" variant="note" />
+</p>
+
+## Text Styling
+
+<p>
+  DirectionHUD offers all the vanilla text formatting functionality for the module output.<br /><br />
+
+  <code>\&b</code> - Makes the text bold.<br />
+  <code>\&i</code> - Makes the text italic.<br />
+  <code>\&s</code> - Makes the text strikethrough.<br />
+  <code>\&u</code> - Makes the text underlined.<br />
+  <code>\&o</code> - Makes the text obfuscated.<br />
+  <code>\&r</code> - Resets all modifiers, <i>excluding</i> the color of the text.<br />
+
+  <br />
+
+  <b>Example</b>: <code>\&bHello \&iWorld!</code><br />
+  <b>Output</b>: <b>Hello <i>World!</i></b><br />
+
+  <br />
+
+  Resetting the modifier between the words offers more controls.<br />
+
+  <br />
+
+  <b>Example</b>: <code>\&bHello \&r\&i\&uWorld\&r!</code><br />
+  <b>Output</b>: <b>Hello</b> <u><i>World</i></u>!<br />
+</p>
+
+## Default Examples
+
+<p>
+  Here are some formatting examples based on these concepts<br /><br />
+
+  <b>Colors</b>: <Badge text="primary" variant="note" />, <Badge text="secondary" variant="success" /><br />
+  <b>Module Output</b>: 123, 45, 678<br /><br />
+
+  <b>Example</b>: <code>&1\&b\&uXYZ&2\&r: %s %s %s</code><br />
+  <b>Output</b>: <Badge text="XYZ" variant="note" style={{ fontWeight: 'bold', textDecoration: 'underline' }} /><Badge text="123 45 678" variant="success" /><br />
+
+  <br />
+
+  <b>Example</b>: <code>&1\&b\&iXYZ\&r&2: %s&1\&b-\&r&2%s&1\&b-\&r&2%s</code><br />
+  <b>Output</b>: <Badge text="XYZ" variant="note" style={{ fontWeight: 'bold', fontStyle: 'italic' }} /><Badge text=": 123" variant="success" /><Badge text="-" variant="note" style={{ fontWeight: 'bold', textDecoration: 'line-through'}} /><Badge text="45" variant="success" /><Badge text="-" variant="note" style={{ fontWeight: 'bold', textDecoration: 'line-through'}} /><Badge text="678" variant="success" /><br />
+</p>
+
+# Configuration
+
+Each part of the file and its valid entries are detailed below.
+
+<Card>
+  ## <code>coordinates</code>
+
+  Display options for the <a href="/1.8.0/features/hud/#coordinates_info" summary="The coordinates module info.">coordinates module</a>.
+
+  ### <code>xyz</code>
+
+  This is the output for when the module is in XYZ mode.
+  <p><b>Outputs</b>: <code>x</code>, <code>y</code>, <code>z</code></p>
+
+  ### <code>xz</code>
+
+  This is the output for when the module is in XZ mode.
+  <p><b>Outputs</b>: <code>x</code>, <code>z</code></p>
+</Card>
+
+<Card>
+  ## <code>destination</code>
+
+  Display options for the <a href="/1.8.0/features/hud/#destination_info" summary="The destination module info.">destination module</a>.
+
+  ### <code>xyz</code>
+
+  This is the output for when the destination has all coordinates with no name.
+  <p><b>Outputs</b>: <code>x</code>, <code>y</code>, <code>z</code></p>
+
+  ### <code>xy</code>
+
+  This is the output for when the destination has no Y level and no name.
+  <p><b>Outputs</b>: <code>x</code>, <code>z</code></p>
+
+  ### <code>name</code>
+
+  This is the output for when the destination has a name and ALL coordinates.
+  <p><b>Outputs</b>: <code>destination\_name</code>, <code>x</code>, <code>y</code>, <code>z</code></p>
+
+  ### <code>name\_xz</code>
+
+  This is the output for when the destination has a name but, NO Y coordinate.
+  <p><b>Outputs</b>: <code>destination\_name</code>, <code>x</code>, <code>z</code></p>
+</Card>
+
+<Card>
+  ## <code>distance</code>
+
+  Display options for the <a href="/1.8.0/features/hud/#distance_info" summary="The distance module info.">distance module</a>.
+
+  ### <code>number</code>
+
+  This is the only output for the distance module.
+  <p><b>Outputs</b>: <code>distance</code></p>
+</Card>
+
+<Card>
+  ## <code>tracking</code>
+
+  Display options for the <a href="/1.8.0/features/hud/#tracking_info" summary="The tracking module info.">tracking module</a>.
+
+  ### <code>assets</code>
+
+  This provides the symbols used for the tracking module.
+
+  <p>
+    <b>Simple</b>: the symbols used when the module style is set to simple <br />
+    <b>Compact</b>: the symbols used when the module style is set to compact <br />
+    <b>Elevation</b>: the symbols used when tracking elevation is enabled
+  </p>
+
+  ### <code>tracking</code>
+
+  This is the output for tracking without elevation.
+  <p><b>Outputs</b>: <code>tracking\_arrow</code></p>
+
+  ### <code>elevation\_tracking</code>
+
+  This is the output for tracking with elevation.
+  <p><b>Outputs</b>: <code>tracking\_arrow</code>, <code>elevation\_arrow</code></p>
+</Card>
+
+<Card>
+  ## <code>direction</code>
+
+  Display options for the <a href="/1.8.0/features/hud/#direction_info" summary="The direction module info.">direction module</a>.
+
+  ### <code>assets</code>
+
+  This provides the assets used for the direction module.
+
+  <p>
+    <b>Cardinal</b>: the asset to display for each cardinal direction
+  </p>
+
+  ### <code>facing</code>
+
+  This is the only output for the direction module.
+  <p><b>Outputs</b>: <code>direction</code></p>
+</Card>
+
+<Card>
+  ## <code>weather</code>
+
+  Display options for the <a href="/1.8.0/features/hud/#weather_info" summary="The weather module info.">weather module</a>.
+
+  ### <code>weather\_single</code>
+
+  This is the output for when the weather is clear.
+  <p><b>Outputs</b>: <code>weather</code></p>
+
+  ### <code>weather</code>
+
+  This is the output for when the weather is not clear. (e.g., thunderstorms)
+  <p><b>Outputs</b>: <code>weather</code>, <code>weather\_conditions</code></p>
+</Card>
+
+<Card>
+  ## <code>time</code>
+
+  Display options for the <a href="/1.8.0/features/hud/#time_info" summary="The time module info.">time module</a>.
+
+  ### <code>hour\_AM</code>
+
+  This is the output for the 12-hour clock, in the AM.
+  <p><b>Outputs</b>: <code>time\_hour</code>, <code>time\_minute</code></p>
+
+  ### <code>hour\_PM</code>
+
+  This is the output for the 12-hour clock, in the PM.
+  <p><b>Outputs</b>: <code>time\_hour</code>, <code>time\_minute</code></p>
+
+  ### <code>hour\_24</code>
+
+  This is the output for the 24-hour clock.
+  <p><b>Outputs</b>: <code>time\_hour</code>, <code>time\_minute</code></p>
+</Card>
+
+<Card>
+  ## <code>angle</code>
+
+  Display options for the <a href="/1.8.0/features/hud/#angle_info" summary="The tracking angle info.">angle module</a>.
+
+  ### <code>yaw</code>
+
+  This is the output for the yaw angle.
+  <p><b>Outputs</b>: <code>yaw</code></p>
+
+  ### <code>pitch</code>
+
+  This is the output for the pitch angle.
+  <p><b>Outputs</b>: <code>pitch</code></p>
+
+  ### <code>both</code>
+
+  This is the output for both angles.
+  <p><b>Outputs</b>: <code>yaw</code>, <code>pitch</code></p>
+</Card>
+
+<Card>
+  ## <code>speed</code>
+
+  Display options for the <a href="/1.8.0/features/hud/#speed_info" summary="The speed module info.">speed module</a>.
+
+  ### <code>xz\_speed</code>
+
+  This is the output for the 2D speed.
+  <p><b>Outputs</b>: <code>speed</code></p>
+
+  ### <code>xyz\_speed</code>
+
+  This is the output for the 3D speed.
+  <p><b>Outputs</b>: <code>speed</code></p>
+</Card>
+
+# Default File Structure
+
+import importedCode from '/src/assets/default_files/module-text.json?raw';
+
+<Code code={importedCode} lang="json" title="module-text.json" />
