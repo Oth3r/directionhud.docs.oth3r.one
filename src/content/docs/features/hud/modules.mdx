@@ -2,11 +2,14 @@
 title: Modules
 description: How to edit DirectionHUD module-text.json file
 lastUpdated: true
+tableOfContents:
+  minHeadingLevel: 1
+  maxHeadingLevel: 2
 slug: features/hud/modules
 ---
 The HUD is comprised of modules each with their own configurations and states.
 
-# Module
+# Modules
 
 ## Coordinates
 The coordinates module displays the player's current coordinates in the world. 
@@ -74,38 +77,41 @@ Sets the formatting string for the speed value.
 The angle module displays the player's current viewing angle.
 
 ### Settings
-#### <code>display</code>
-Sets the angle display type.   
-<p><b>Options</b>: yaw, pitch, both</p>
+    #### <code>display</code>
+    Sets the angle display type.   
+    <p><b>Options</b>: yaw, pitch, both</p>
+
 
 # Commands
-import Command from '@/components/command.astro';
+import Command from '@/components/command/command.astro';
+import Example from '@/components/command/example.astro';
 
 Each command shown starts with <code>/hud modules</code>.
 
 <Command></Command>
 
-### <code>/hud modules</code>
+## <code>(empty)</code>
 Displays the HUD module edit GUI.
 <p>The menu displays a random preview of the module,
     toggle settings, HUD order settings, custom HUD options,
     and buttons to switch the module being edited.</p>
+<Example command="/hud module" />
 
-### <code>/hud module order &lt;module&gt; &lt;order&gt;</code>
+## <code>order &lt;module&gt; &lt;order&gt;</code>
 Sets the display order for the selected module.  
-<p><b>Example:</b> <code>/hud module order time 2</code></p>
+<Example command="/hud module order time 2"/>
 <p>Enter a number greater than one for the order.</p>
 
-### <code>/hud module setting &lt;module&gt; &lt;module_setting&gt; &lt;value&gt;</code>
-Sets a specific HUD module setting to the given value.  
-<p><b>Example:</b> <code>/hud module setting speed 2d-calculation off</code></p>
+## <code>setting &lt;module&gt; &lt;module_setting&gt; &lt;value&gt;</code>
+Sets a specific HUD module setting to the given value.
+<Example command="/hud module setting speed 2d-calculation off"/>
 <p>For a list of modules and their settings, <a href="#module" summary="Module and their settings.">Click Here.</a></p>
 
-### <code>/hud module toggle &lt;module&gt;</code>
-Toggles the enabled status of the selected module.  
-<p><b>Example:</b> <code>/hud module toggle time</code></p> 
+## <code>toggle &lt;module&gt;</code>
+Toggles the enabled status of the selected module.
+<Example command="/hud module toggle time"/>
 
-### <code>/hud module reset (module)</code>
+## <code>reset (module)</code>
 Restores all HUD modules to their default values unless a specific module is specified.  
-<p><b>Example:</b> <code>/hud module reset</code></p>
+<Example command="/hud module reset"/>
 
