@@ -48,7 +48,7 @@ export default defineConfig({
 					versions: [{ slug: '1.8.0' }],
 				}),
 				catppuccin({
-					dark: { flavor: "mocha", accent: "blue" },
+					dark: { flavor: "macchiato", accent: "blue" },
 					light: { flavor: "latte", accent: "blue" }
 				}),
 			],
